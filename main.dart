@@ -47,5 +47,7 @@ void main(List<String> args) {
   }
   if (calculation == '/') {
     print(x / y);
+  }else{
+   print('eror');
   }
 }
