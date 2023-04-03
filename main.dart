@@ -1,53 +1,66 @@
-import 'dart:io';
+import 'package:flutter/material.dart';
+import 'package:google_nav_bar/google_nav_bar.dart';
 
-void main(List<String> args) {
-//Write a program to print Hello I am “John Doe” and Hello I’am “John Doe” with single and double quote.?
-  String nameWithSingleQuote = "'john'";
-  String nameWithDoubleQuote = '"john"';
-  print('Hello I am John Doe');
-  print('Hello I am $nameWithSingleQuote');
-  print('Hello I am $nameWithDoubleQuote');
-  print('-----------------------------------------------------------------');
-//Write a program in Dart that finds simple interest. Formula= (p * t * r) / 100?
-  print('Enter p');
-  double p = double.parse(stdin.readLineSync()!);
-  print('Enter t');
-  double t = double.parse(stdin.readLineSync()!);
-  print('Enter r');
-  double r = double.parse(stdin.readLineSync()!);
-  double result = (p * t * r) / 100;
-  print(result);
-  print('-----------------------------------------------------------------');
-//Write a program to print a square of a number using user input?
-  print('Enter x');
-  double number = double.parse(stdin.readLineSync()!);
-  double SquareOfx = number * number;
-  print('Square of x = $SquareOfx ');
-  print('-----------------------------------------------------------------');
-  //Write a dart program to convert String to int?
-  String numberS = '5';
-  int numberI = int.parse(numberS);
-  print(numberI * 5);
-  print('-----------------------------------------------------------------');
-  //make funcations to to make an opreation bettwen 2 nums?+-*/
-  print('Enter First Number');
-  double x = double.parse(stdin.readLineSync()!);
-  print('Enter Second Number');
-  double y = double.parse(stdin.readLineSync()!);
-  print('choose your calculation (+ , - , * , /)');
-  dynamic calculation = stdin.readLineSync()!;
-  if (calculation == '+') {
-    print(x + y);
-  }
-  if (calculation == '-') {
-    print(x - y);
-  }
-  if (calculation == '*') {
-    print(x * y);
-  }
-  if (calculation == '/') {
-    print(x / y);
-  }else{
-   print('eror');
+void main() {
+  runApp(ui());
+}
+
+class ui extends StatefulWidget {
+  @override
+  State<ui> createState() => _uiState();
+}
+
+class _uiState extends State<ui> {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.grey,
+          title: Text(
+            'IEEE',
+            style: TextStyle(
+              fontSize: 30,
+              color: Colors.black,
+            ),
+          ),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.vertical(
+              bottom: Radius.circular(15),
+            ),
+          ),
+          elevation: 0,
+          actions: [
+            IconButton(
+                onPressed: () {},
+                icon: Icon(
+                  Icons.search,
+                  color: Colors.black,
+                  size: 40,
+                ))
+          ],
+        ),
+        bottomNavigationBar: ClipRRect(
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(20.0),
+            topRight: Radius.circular(20.0),
+          ),
+          child: BottomNavigationBar(
+            selectedItemColor: Colors.black,
+            unselectedItemColor: Colors.black,
+            iconSize: 50,
+            backgroundColor: Colors.grey,
+            items: [
+              BottomNavigationBarItem(
+                  label: '', icon: Icon(Icons.home_rounded)),
+              BottomNavigationBarItem(
+                  label: '', icon: Icon(Icons.favorite_border_outlined)),
+              BottomNavigationBarItem(label: '', icon: Icon(Icons.person)),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }
